@@ -94,3 +94,9 @@ class Upvote(db.Model):
     def add_upvotes(self):
         upvote_pitch = Upvote(user = current, pitch)
         upvote_pitch.save_upvotes()
+
+
+    @classmethod
+    def get_upvotes(cls,id):
+        upvote = Upvote.query.filter_by(pitch_id=id)
+        upvote_pitch.save_upvote
