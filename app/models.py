@@ -80,3 +80,12 @@ class Comment(db.Model):
 
 
 class Upvote(db.Model):
+    __tablename__ = 'upvotes'
+
+    id = db.column(db.Integer,primary_key = True)
+    upvote = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+    def save_upvotes(self):
+        db.session.add(self)
+        db.session.commit()
