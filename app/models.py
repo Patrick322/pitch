@@ -58,3 +58,25 @@ class pitch(db.model):
 
     @classmethod
     def get pitches(cls, id)
+        pitches = Pitch.query.order_by(pitch_id=id).desc().all()
+        return pitches
+
+    def __repr__(self):
+        return f'pitch {self.description}'
+
+
+
+class Comment(db.Model):
+    __tablename__='comments'
+
+    id = db.column(db.Integer, primary_key = True)
+    pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'), nullable = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    description = db.column(db.Text)
+
+
+    def __repr__(self):
+        return f"Comment : id: {self.id} comment: {self.description}"
+
+
+class Upvote(db.Model):
