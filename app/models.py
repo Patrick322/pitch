@@ -44,3 +44,17 @@ class User(UserMixin,db.model)
 class pitch(db.model):
     '''
     '''
+    __tablename__='pitches'
+
+    id = db.Column(db.Integer, primary_key = True)
+    owner_id = db.column(db.Integer,db,ForeignKey('users.id'), nullable = False)
+    description = db.Column(db.String(), index = True)
+    title = db.Column(db.String())
+    category = db.Column(db.String(255), nullable = False)
+    comments = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
+    upvotes = db.relationship('upvote', backref = 'pitch', lazy = 'dynamic')
+    downvotes = db.relation('Downvotes', backref = 'pitch', lazy = 'dynamic')
+
+
+    @classmethod
+    def get pitches(cls, id)
