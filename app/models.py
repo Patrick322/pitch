@@ -32,3 +32,6 @@ class User(UserMixin,db.model)
     @password.setter
     def password(self, password):
         self.pass_secure = generate_password_hash(password)
+
+    def verify_password(self, password):
+        
