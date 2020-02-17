@@ -12,7 +12,9 @@ This application users allows users to use that one minute wisely. The users wil
 
 
 ## Behavior Driven Development (BDD)
-
+* The user is required to sign in first 
+* Then he/she login
+* Then the user can pick the pitch he would like to post
 
 
 ## Technology Used
