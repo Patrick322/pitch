@@ -21,6 +21,7 @@ This application users allows users to use that one minute wisely. The users wil
 * Flask
 
 ## codebeat
+[![codebeat badge](https://codebeat.co/badges/b430199a-cb98-4e15-9e18-3d0355ac20ee)](https://codebeat.co/projects/github-com-patrick322-pitch-master)
 
 ## livelink
 
