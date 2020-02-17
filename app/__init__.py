@@ -1,22 +1,23 @@
-from flask import flask
+from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_simplemede import simpleMDE
+from flask_simplemde import SimpleMDE
 
 
 
 # instances of flask extentions
-# instances of Flask_loginManager
+# instances of Flask_loginManagern ft michael jackson handhold my 
+simple = SimpleMDE()
 login_Manager = LoginManager()
 login_Manager.session_protection = 'strong'
 login_Manager.login_view = 'auth.login'
 bootstrap = Bootstrap()
 db = SQLAlchemy()
-simple = simpleMDE
 
-def create_app(config_name)
+
+def create_app(config_name):
     '''
     Function that takes configeration setting key as an argument
 
@@ -27,27 +28,26 @@ def create_app(config_name)
     # Initializing application
     app = Flask(__name__)
 
-simple.init__app(name)
+    
 
-# creating the appconfigeration
-app.config.from_object(config_options[config_name])
+    # creating the appconfigeration
+    app.config.from_object(config_options[config_name])
 
 
-#Initializing flask extensions
-bootstrap.init__app()
-db.init_app(app)
-login_Manager.init__app(app)
+    #Initializing flask extensions
+    
+    db.init_app(app)
+    simple.init_app(app)
+    login_Manager.init_app(app)
+    bootstrap.init_app(app)
 
-# Registering the main Blueprint
-from.main import main as main_blueprint
-app.register_blueprint(main_blueprint)
+    # Registering the main Blueprint
+    from .first import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
-# registering the auth blueprint
-from.auth import auth as auth_blueprint
-app.register_blueprint(auth_blueprint, url_prefix='/auth')
+    # registering the auth blueprint
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
-# setting config when using API
-#from.request import configure_request
-#config_request(app)
 
     return app
